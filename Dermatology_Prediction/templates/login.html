@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dermatology Login</title>
+    <link rel="stylesheet"
+    href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="main-container">
+
+    <div class="card">
+
+        <h1>🩺 Dermatology Predictor</h1>
+        <p class="subtitle">
+            Login to continue
+        </p>
+
+        <form action="/login" method="POST">
+
+            <label>Username</label>
+            <input type="text"
+            name="username"
+            required>
+
+            <label>Password</label>
+            <input type="password"
+            name="password"
+            required>
+
+            <button type="submit">
+                Login
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+</body>
+</html>

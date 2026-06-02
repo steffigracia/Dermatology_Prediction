@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dermatology Prediction</title>
+
+    <link rel="stylesheet"
+    href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="main-container">
+
+<div class="card large-card">
+
+<h1>🩺 Dermatology Disease Prediction</h1>
+
+<p class="subtitle">
+Enter patient details
+</p>
+
+<form action="/predict" method="POST">
+
+{% set features = [
+
+'Erythema',
+'Scaling',
+'Definite Borders',
+'Itching',
+'Koebner Phenomenon',
+'Polygonal Papules',
+'Follicular Papules',
+'Oral Mucosal Involvement',
+'Knee Elbow Involvement',
+'Scalp Involvement',
+'Family History',
+'Melanin Incontinence',
+'Eosinophils in Infiltrate',
+'PNL Infiltrate',
+'Fibrosis Papillary Dermis',
+'Exocytosis',
+'Acanthosis',
+'Hyperkeratosis',
+'Parakeratosis',
+'Clubbing Rete Ridges',
+'Elongation Rete Ridges',
+'Thinning Suprapapillary Epidermis',
+'Spongiform Pustule',
+'Munro Microabcess',
+'Focal Hypergranulosis',
+'Disappearance Granular Layer',
+'Vacuolisation Damage Basal Layer',
+'Spongiosis',
+'Saw Tooth Retes',
+'Follicular Horn Plug',
+'Perifollicular Parakeratosis',
+'Inflammatory Monoluclear Infiltrate',
+'Band Like Infiltrate'
+] %}
+
+{% for feature in features %}
+
+<label>{{ feature }}</label>
+
+<select
+name="feature{{ loop.index }}"
+required>
+
+<option value="">Select</option>
+<option value="0">
+0 - Not Present
+</option>
+
+<option value="1">
+1 - Mild
+</option>
+
+<option value="2">
+2 - Medium
+</option>
+
+<option value="3">
+3 - Severe
+</option>
+
+</select>
+
+{% endfor %}
+
+<label>Age</label>
+
+<input
+type="number"
+name="feature34"
+required>
+
+<button type="submit">
+Predict Disease
+</button>
+
+</form>
+
+</div>
+</div>
+
+</body>
+</html>
